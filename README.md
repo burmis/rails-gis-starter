@@ -12,22 +12,18 @@ A simple starter app with Rails, mapbox, and PostGIS
 
 2. Open a new Codespace for this repo. These directions will assume you've done this.
 
-3. Change into the project directory
-
-```
-cd rails-gis-starter/
-```
-
 4. Install the correct ruby with rvm
 
 ```
 rvm install "ruby-3.1.3"
+rvm use "ruby-3.1.3"
 ```
 
 2. Install dependencies
 
 ```
 bundle install
+yarn install
 ```
 
 2. Set up the database by running
@@ -39,7 +35,7 @@ rails db:setup
 3. Start up the dev server
 
 ```
-rails server
+bin/dev
 ```
 
 4. Open the app has started you can access the homepage at http://localhost:3000
