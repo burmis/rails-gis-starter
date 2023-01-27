@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/ruby:0-3.1-bullseye
 
 # Install Rails
-RUN gem install rails webdrivers 
+# RUN gem install rails webdrivers 
 
 # Default value to allow debug server to serve content over GitHub Codespace's port forwarding service
 # The value is a comma-separated list of allowed domains 
