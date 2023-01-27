@@ -15,6 +15,9 @@ gem "pg", "~> 1.1"
 # Use PostGIS for the database adapter
 gem 'activerecord-postgis-adapter'
 
+# Allow exporting as GeoJSON
+gem 'rgeo-geojson'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

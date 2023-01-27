@@ -157,6 +157,8 @@ GEM
     rgeo-activerecord (7.0.1)
       activerecord (>= 5.0)
       rgeo (>= 1.0.0)
+    rgeo-geojson (2.1.1)
+      rgeo (>= 1.0.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -196,6 +198,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  rgeo-geojson
   sprockets-rails
   stimulus-rails
   turbo-rails
