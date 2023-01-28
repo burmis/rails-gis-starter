@@ -1,6 +1,24 @@
 # rails-gis-starter
 A simple starter app with Rails, mapbox, and PostGIS
 
+## Homework
+The repo exists for you to demonstrate some of your Ruby/React/PostGIS skills.
+
+We don't expect you to know or understand these tools perfectly, so please take your time and do your best. We're as interested in seeing how productive you can be as you learn, and what you're able to accomplish, as we are in the final product.
+
+If you have questions, email mark@statvis.com.
+
+You don't need to make your repo private, but if you choose to please invite @markbennett as a collaborator with read permissions so we can review your work together.
+
+We're aiming for you to spend no more than 2-hours on this so don't feel like you need to complete all these changes. As you progress, we'll try to make them harder so get as far as you can then let us know when you're done. Please don't spend more than 2-hours on this, and reach out if you're stuck.
+
+1. Follow the pre-requisites and get the app running in a Codespace
+2. Increase the number of seeded items (HINT: Look in `seeds.rb`)
+3. Change the title of the React component from "Our React App" to "Statvis" (HINT: Check out `App.jsx`)
+4. Change the contents of the place popup
+5. Add a random shape to the map
+6. Add 
+
 ## Prerequisites
 
 1. A GitHub account
@@ -12,33 +30,43 @@ A simple starter app with Rails, mapbox, and PostGIS
 
 2. Open a new Codespace for this repo. These directions will assume you've done this.
 
-4. Install the correct ruby with rvm
+3. Install the correct ruby with rvm
 
 ```
 rvm install "ruby-3.1.3"
 rvm use "ruby-3.1.3"
 ```
 
-2. Install dependencies
+4. Install dependencies
 
 ```
 bundle install
 yarn install
 ```
 
-2. Set up the database by running
+5. Set up the database by running
 
 ```
 rails db:setup
 ```
 
-3. Start up the dev server
+6. Start up the dev server
 
 ```
 bin/dev
 ```
 
-4. Open the app has started you can access the homepage at http://localhost:3000
+7. Open the app has started you can access the homepage at http://localhost:3000
+
+## Connecting to the Codespace a second time
+
+I've not figured out why yet (PRs welcome!), but each time you connect to the codespace and open your first terminal you need to run:
+
+```
+rvm use "ruby-3.1.3"
+```
+
+If you don't do this you'll see errors about gem permissions and missing Ruby gems.
 
 ## FAQ
 
@@ -67,6 +95,14 @@ psql -h db -U postgres postgres -W
 ```
 
 When asked for the password use `postgres`.
+
+### Why am I seeing errors about missing gems and permission failures when I try to run `bundle install`?
+
+You're probably not using the version of Ruby installed with RVM. This can happen if you restart a Codespace. To fix it switch to the version you installed using:
+
+```
+rvm use "ruby-3.1.3"
+```
 
 # Resources
 
