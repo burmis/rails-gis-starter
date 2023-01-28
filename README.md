@@ -13,11 +13,14 @@ You don't need to make your repo private, but if you choose to please invite @ma
 We're aiming for you to spend no more than 2-hours on this so don't feel like you need to complete all these changes. As you progress, we'll try to make them harder so get as far as you can then let us know when you're done. Please don't spend more than 2-hours on this, and reach out if you're stuck.
 
 1. Follow the pre-requisites and get the app running in a Codespace
-2. Increase the number of seeded items (HINT: Look in `seeds.rb`)
+2. Increase the number of seeded items to 100 (HINT: Look in `seeds.rb`)
 3. Change the title of the React component from "Our React App" to "Statvis" (HINT: Check out `App.jsx`)
-4. Change the contents of the place popup
-5. Add a random shape to the map
-6. Add 
+4. Change the contents of the place popup (HINT: Checkout https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/)
+5. Add a random shape to the map (HINT: Try this https://docs.mapbox.com/mapbox-gl-js/example/fill-pattern/)
+6. Add filter to only display places with certain text in their names (HINT: You can do this in Ruby or JS, you pick)
+7. Cluster places as you zoom out to ensure stable performance Increase the number of places to 1000, 10000, or more! How high can you go and still make it performant? (HINT: Checkout https://docs.mapbox.com/mapbox-gl-js/example/cluster/)
+9. Add ratings to the Place model, populate them with data, then display the average rating for each place.
+10. ADD YOUR OWN IDEA!
 
 ## Prerequisites
 
