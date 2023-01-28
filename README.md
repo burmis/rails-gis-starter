@@ -12,6 +12,8 @@ You don't need to make your repo private, but if you choose to please invite @ma
 
 We're aiming for you to spend no more than 2-hours on this so don't feel like you need to complete all these changes. As you progress, we'll try to make them harder so get as far as you can then let us know when you're done. Please don't spend more than 2-hours on this, and reach out if you're stuck.
 
+Don't forget to look at the FAQ and RESOURCES in this README.
+
 1. Follow the pre-requisites and get the app running in a Codespace
 2. Increase the number of seeded items to 100 (HINT: Look in `seeds.rb`)
 3. Change the title of the React component from "Our React App" to "Statvis" (HINT: Check out `App.jsx`)
@@ -114,3 +116,5 @@ These are some of the tools used in this project
 * [Rails 7](https://rubyonrails.org/)
 * [Postgres](https://www.postgresql.org/)
 * [PostGIS](https://registry.hub.docker.com/r/postgis/postgis) with [activerecord-postgis-adapter](https://github.com/rgeo/activerecord-postgis-adapter)
+* [Mapbox-GL Docs](https://docs.mapbox.com/mapbox-gl-js/guides/)
+* [Mapbox-GL Examples](https://docs.mapbox.com/mapbox-gl-js/example/)
