@@ -31,6 +31,32 @@ export default props => {
         });
     });
 
+    // Display the places GeoJSON on load
+    useEffect(() => {
+        if (!map.current) return; // wait for map to initialize
+
+        map.current.on('load', () => {
+            map.current.addSource('places', {
+                type: 'geojson',
+                // Use a URL for the value for the `data` property.
+                data: '/places.geojson'
+            });
+            
+            map.current.addLayer({
+                'id': 'places-layer',
+                'type': 'circle',
+                'source': 'places',
+                'paint': {
+                    'circle-radius': 4,
+                    'circle-stroke-width': 2,
+                    'circle-color': 'blue',
+                    'circle-stroke-color': 'white'
+                }
+            });
+        });
+    });
+
+
     return <div>
         <h1>Our React App</h1>
         <div className="sidebar">
