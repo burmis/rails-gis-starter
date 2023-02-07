@@ -27,23 +27,73 @@ export default props => {
                     type: 'FeatureCollection',
                     features: []
                 },
+                cluster: true,
+                clusterMaxZoom: 14, // Max zoom to cluster points on
+                clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
             });
             
             map.addLayer({
                 'id': 'places-layer',
                 'type': 'circle',
                 'source': 'places',
+                'filter': ['has', 'point_count'],
                 'paint': {
-                    'circle-radius': 4,
-                    'circle-stroke-width': 2,
+                    'circle-radius': 10,
+                    'circle-stroke-width': 5,
                     'circle-color': 'blue',
                     'circle-stroke-color': 'white'
                 }
             });
- 
-            // When a click event occurs on a feature in the places layer, open a popup at the
-            // location of the feature, with description HTML from its properties.
+
+            map.addLayer({
+                id: 'cluster-count',
+                type: 'symbol',
+                source: 'places',
+                filter: ['has', 'point_count'],
+                layout: {
+                    'text-field': ['get', 'point_count_abbreviated'],
+                    'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                    'text-size': 12
+                }
+            });
+                 
+            map.addLayer({
+                id: 'unclustered-point',
+                type: 'circle',
+                source: 'places',
+                filter: ['!', ['has', 'point_count']],
+                paint: {
+                    'circle-color': '#11b4da',
+                    'circle-radius': 4,
+                    'circle-stroke-width': 1,
+                    'circle-stroke-color': '#fff'
+                }
+            });
+
+            // inspect a cluster on click
             map.on('click', 'places-layer', (e) => {
+                const features = map.queryRenderedFeatures(e.point, {
+                    layers: ['places-layer']
+                });
+                const clusterId = features[0].properties.cluster_id;
+                map.getSource('places').getClusterExpansionZoom(
+                    clusterId,
+                    (err, zoom) => {
+                        if (err) return;
+                        
+                        map.easeTo({
+                            center: features[0].geometry.coordinates,
+                            zoom: zoom
+                        });
+                    }
+                );
+            });
+            
+            // When a click event occurs on a feature in
+            // the unclustered-point layer, open a popup at
+            // the location of the feature, with
+            // description HTML from its properties.
+            map.on('click', 'unclustered-point', (e) => {
                 // Copy coordinates array.
                 const coordinates = e.features[0].geometry.coordinates.slice();
                 const { name, description, x: lon, y: lat } = e.features[0].properties;
