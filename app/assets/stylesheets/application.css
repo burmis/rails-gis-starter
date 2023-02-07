@@ -18,3 +18,11 @@
 .map-container {
     height: 400px;
 }
+
+.place-popup h4, .place-popup p {
+    margin: 0;
+}
+
+.search-input {
+    margin-left: 1em;
+}
