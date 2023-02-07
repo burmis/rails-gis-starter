@@ -128,49 +128,6 @@ export default props => {
                 map.getCanvas().style.cursor = '';
             });
 
-            // Add random shape.
-            map.addSource('shape', {
-                'type': 'geojson',
-                'data': {
-                    'type': 'Feature',
-                    'properties': {},
-                    'geometry': {
-                        'type': 'Polygon',
-                        'coordinates': [
-                            [
-                                [-113.596464, 53.588253],
-                                [-113.602192, 53.429771],
-                                [-113.441843, 53.435710],
-                                [-113.365323, 53.529295],
-                                [-113.438101, 53.564635]
-                            ]
-                        ]
-                    }
-                }
-            });
-
-            // Load an image to use as the pattern from an external URL.
-            map.loadImage(
-                'https://docs.mapbox.com/mapbox-gl-js/assets/colorado_flag.png',
-                (err, image) => {
-                    // Throw an error if something goes wrong.
-                    if (err) throw err;
-                    
-                    // Add the image to the map style.
-                    map.addImage('pattern', image);
-                    
-                    // Create a new layer and style it using `fill-pattern`.
-                    map.addLayer({
-                        'id': 'pattern-layer',
-                        'type': 'fill',
-                        'source': 'shape',
-                        'paint': {
-                            'fill-pattern': 'pattern'
-                        }
-                    });
-                }
-            );
-
             setMap(map);
         });
 
@@ -188,6 +145,53 @@ export default props => {
             setZoom(map.getZoom().toFixed(2));
         });
     }, [map]);
+
+    // Add random shape 
+    useEffect(() => {
+        if (!map) return; // wait for map to initialize
+
+        map.addSource('shape', {
+            'type': 'geojson',
+            'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'Polygon',
+                    'coordinates': [
+                        [
+                            [-113.596464, 53.588253],
+                            [-113.602192, 53.429771],
+                            [-113.441843, 53.435710],
+                            [-113.365323, 53.529295],
+                            [-113.438101, 53.564635]
+                        ]
+                    ]
+                }
+            }
+        });
+
+        // Load an image to use as the pattern from an external URL.
+        map.loadImage(
+            'https://docs.mapbox.com/mapbox-gl-js/assets/colorado_flag.png',
+            (err, image) => {
+                // Throw an error if something goes wrong.
+                if (err) throw err;
+                
+                // Add the image to the map style.
+                map.addImage('pattern', image);
+                
+                // Create a new layer and style it using `fill-pattern`.
+                map.addLayer({
+                    'id': 'pattern-layer',
+                    'type': 'fill',
+                    'source': 'shape',
+                    'paint': {
+                        'fill-pattern': 'pattern'
+                    }
+                });
+            }
+        );
+    }, [map])
 
     // Display the places GeoJSON on load
     useEffect(() => {
